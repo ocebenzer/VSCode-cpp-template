@@ -1,0 +1,42 @@
+{
+    "tasks": [
+        {
+            "label": "Build",
+            "dependsOn": [
+                "Clear Output Files",
+                "Build main.cpp"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "Clear Output Files",
+            "command": "echo",
+            "args": [
+                "",
+                "|",
+                "tee",
+                "${workspaceFolder}/output.txt",
+                ">",
+                "${workspaceFolder}/error.txt"
+            ]
+        },
+        {
+            "type": "cppbuild",
+            "label": "Build main.cpp",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/main.cpp",
+                "-o",
+                "${workspaceFolder}/main.out"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+    ],
+    "version": "2.0.0",
+}
